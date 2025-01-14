@@ -2,6 +2,10 @@
 
 Additive Manufacture Breakout Boards are a 3D printable design to convert surface-mounted ICs to DIP for easy prototyping.
 
+> **Corresponding Publication**:
+>
+> [_Overcoming Chip Shortages: Low-Cost Open-Source Parametric 3-D Printable Solderless SOIC to DIP Breakout Adapters_](https://doi.org/10.3390/inventions8020061)
+
 ## Features
 
 - Open-source and parametric design
@@ -22,8 +26,8 @@ Additive Manufacture Breakout Boards are a 3D printable design to convert surfac
 
 ## License
 
-[Insert license information]
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0). See the [LICENSE](./LICENSE) file for more details.
 
 ## Contributing
 
-Contributions are welcome! Please submit pull requests or issues to improve the design.
+Contributions are not being accepted on this project. Please see [uwo-fast/amcb](https://github.com/uwo-fast/amcb) if you are interested in further developing this idea.
