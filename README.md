@@ -33,15 +33,22 @@ The enclosure is colour-codeable: print different chip types in different colour
 
 ### `cad/`: FreeCAD model
 
-`ambb_v3_7.FCStd` is the model. The paper's parts were exported from FreeCAD as STL,
-and the meshes in `printing/` carry the same version number. The FreeCAD renders are
-in `assets/images/`.
+`ambb_v3_7.FCStd` is the model the paper's STLs were exported from, saved by FreeCAD
+0.19. It opens and recomputes in FreeCAD 1.1.3, and the three bodies still match the
+STLs in `printing/` to within 0.3 % of volume, with two warnings: the bolt head's
+sketch is flagged for redundant constraints, and the enclosure gains a stray 0.07 mm^3
+second solid. The FreeCAD renders are in `assets/images/`.
 
 ### `scad/`: OpenSCAD model
 
-`ambb.scad` is a parametric version of the same three parts. Every dimension is a
-named parameter at the top, and `render_enclosure`, `render_component_housing` and
-`render_bolt` choose which parts to draw. Opened as is, it lays out all three.
+`ambb.scad` is a parametric OpenSCAD model of the three parts. It follows the FreeCAD
+design but does not reproduce it exactly: rendered with its defaults, the enclosure
+has 5 % less volume than `adapter_v3_7-Enclosure.stl`, and the housing and bolt 1-2 %
+more, at the same outer sizes.
+
+Every dimension is a named parameter at the top, and `render_enclosure`,
+`render_component_housing` and `render_bolt` choose which parts to draw. Opened as
+is, it lays out all three.
 
 If the bolt is too tight or too loose on your printer, adjust its four tolerance
 multipliers: `bolt_rad_tol`, `threading_pitch_tol`, `thread_height_tol` and
@@ -55,18 +62,17 @@ included as `Spiral_Extrude_Library.scad` with its examples removed.
 With OpenSCAD 2026.10.15, the CGAL backend had not finished rendering the threaded
 enclosure after 10 minutes; `--backend=Manifold` rendered it in about 2 seconds.
 
-### `printing/`: meshes and slicer projects
+### `printing/`: the printed parts
 
-| File | What it is |
-| --- | --- |
-| `adapter_v3_7-Enclosure.stl`, `-ChipHousing.stl`, `-Bolt.stl` | the three parts, exported from the FreeCAD model |
-| `adapter_v3_7_1x3.3mf` | PrusaSlicer project: one adapter's three parts |
-| `adapter_v3_7_Full_Plate.3mf` | PrusaSlicer project: a full MK3S sheet of 97 adapters (291 parts) |
+`adapter_v3_7-Enclosure.stl`, `adapter_v3_7-ChipHousing.stl` and
+`adapter_v3_7-Bolt.stl` are the three parts as printed for the paper, exported from
+the FreeCAD model.
 
-`assets/images/supports_diagram.png` and `supports_settings.png` show supports
-painted onto a part with PrusaSlicer's paint-on supports tool. Neither 3MF project
-contains painted supports: `1x3` has support material on with automatic supports off,
-and `Full_Plate` has support material off.
+The paper's PrusaSlicer projects, one adapter and a full MK3S sheet of 97, are in the
+Printing Files folder of the OSF project, <https://osf.io/dh6uy/files>. Their filament
+profile is named "Ultrafuse PRO1", not the paper's Prusament PLA, and neither contains
+painted supports. `assets/images/supports_diagram.png` and
+`supports_settings.png` show PrusaSlicer's paint-on supports tool in use on a part.
 
 ### `analysis/`: data behind the paper's figures
 
@@ -89,9 +95,6 @@ These are the paper's settings (section 2):
 - **Material:** 1.75 mm PLA (Prusament).
 - **Slicer:** PrusaSlicer 2.4.2. Layer height 0.10 mm, default brim, thin-wall
   detection on, 15 % infill, 215 C nozzle and 60 C bed, first layer at 50 % speed.
-
-The 3MF projects carry their own print, filament and printer profiles. Check them
-against your printer before slicing.
 
 To assemble:
 
