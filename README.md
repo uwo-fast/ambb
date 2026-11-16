@@ -33,15 +33,22 @@ The enclosure is colour-codeable: print different chip types in different colour
 
 ### `cad/`: FreeCAD model
 
-`ambb_v3_7.FCStd` is the model. The paper's parts were exported from FreeCAD as STL,
-and the meshes in `printing/` carry the same version number. The FreeCAD renders are
-in `assets/images/`.
+`ambb_v3_7.FCStd` is the model the paper's STLs were exported from, saved by FreeCAD
+0.19. It opens and recomputes in FreeCAD 1.1.3, and the three bodies still match the
+STLs in `printing/` to within 0.3 % of volume, with two warnings: the bolt head's
+sketch is flagged for redundant constraints, and the enclosure gains a stray 0.07 mm^3
+second solid. The FreeCAD renders are in `assets/images/`.
 
 ### `scad/`: OpenSCAD model
 
-`ambb.scad` is a parametric version of the same three parts. Every dimension is a
-named parameter at the top, and `render_enclosure`, `render_component_housing` and
-`render_bolt` choose which parts to draw. Opened as is, it lays out all three.
+`ambb.scad` is a parametric OpenSCAD model of the three parts. It follows the FreeCAD
+design but does not reproduce it exactly: rendered with its defaults, the enclosure
+has 5 % less volume than `adapter_v3_7-Enclosure.stl`, and the housing and bolt 1-2 %
+more, at the same outer sizes.
+
+Every dimension is a named parameter at the top, and `render_enclosure`,
+`render_component_housing` and `render_bolt` choose which parts to draw. Opened as
+is, it lays out all three.
 
 If the bolt is too tight or too loose on your printer, adjust its four tolerance
 multipliers: `bolt_rad_tol`, `threading_pitch_tol`, `thread_height_tol` and
