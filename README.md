@@ -62,18 +62,17 @@ included as `Spiral_Extrude_Library.scad` with its examples removed.
 With OpenSCAD 2026.10.15, the CGAL backend had not finished rendering the threaded
 enclosure after 10 minutes; `--backend=Manifold` rendered it in about 2 seconds.
 
-### `printing/`: meshes and slicer projects
+### `printing/`: the printed parts
 
-| File | What it is |
-| --- | --- |
-| `adapter_v3_7-Enclosure.stl`, `-ChipHousing.stl`, `-Bolt.stl` | the three parts, exported from the FreeCAD model |
-| `adapter_v3_7_1x3.3mf` | PrusaSlicer project: one adapter's three parts |
-| `adapter_v3_7_Full_Plate.3mf` | PrusaSlicer project: a full MK3S sheet of 97 adapters (291 parts) |
+`adapter_v3_7-Enclosure.stl`, `adapter_v3_7-ChipHousing.stl` and
+`adapter_v3_7-Bolt.stl` are the three parts as printed for the paper, exported from
+the FreeCAD model.
 
-`assets/images/supports_diagram.png` and `supports_settings.png` show supports
-painted onto a part with PrusaSlicer's paint-on supports tool. Neither 3MF project
-contains painted supports: `1x3` has support material on with automatic supports off,
-and `Full_Plate` has support material off.
+The paper's PrusaSlicer projects, one adapter and a full MK3S sheet of 97, are in the
+Printing Files folder of the OSF project, <https://osf.io/dh6uy/files>. Their filament
+profile is named "Ultrafuse PRO1", not the paper's Prusament PLA, and neither contains
+painted supports. `assets/images/supports_diagram.png` and
+`supports_settings.png` show PrusaSlicer's paint-on supports tool in use on a part.
 
 ### `analysis/`: data behind the paper's figures
 
@@ -96,9 +95,6 @@ These are the paper's settings (section 2):
 - **Material:** 1.75 mm PLA (Prusament).
 - **Slicer:** PrusaSlicer 2.4.2. Layer height 0.10 mm, default brim, thin-wall
   detection on, 15 % infill, 215 C nozzle and 60 C bed, first layer at 50 % speed.
-
-The 3MF projects carry their own print, filament and printer profiles. Check them
-against your printer before slicing.
 
 To assemble:
 
