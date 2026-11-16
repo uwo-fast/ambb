@@ -12,7 +12,7 @@ applies them as follows:
 | `scad/Spiral_Extrude_Library.scad` (Copyright 2018 Douglas Peale, from <https://www.thingiverse.com/thing:1958354>) | GPL-3.0, under its own notice |
 | `assets/Overcoming_Chip_Shortages_Solderless_Adapters_AMBB_Brooks.pdf` (the paper, (c) 2023 the authors, licensee MDPI) | CC-BY-4.0 |
 | `assets/images/`: the paper's Figures 1 to 8 (`freecad_ambb.png`, `test_circuit.png`, the three `scrape_*.png` charts, `test_setup.png`, `assembled_ambb.png`, `assembledsemi_ambb.png`) | CC-BY-4.0 |
-| `assets/images/`: the other images (`adapter_CAD_*.png`, `testing1.png`, `testing2.png`, `supports_*.png`) | GPL-3.0 |
+| `assets/images/`: the other images (`adapter_CAD_*.png`, `testing1.png`, `testing2.png`, `testing2-1200.jpg`, `supports_*.png`) | GPL-3.0 |
 | `CITATION.cff` | CC0-1.0 |
 
 The texts are in [`LICENSES/`](LICENSES): [`GPL-3.0.txt`](LICENSES/GPL-3.0.txt),
