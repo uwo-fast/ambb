@@ -6,11 +6,14 @@
  *          of a breakout board that's 3D printable. It works by enforcing contact between an SMT (in this
  *          study, an 8-SOIC form) and header pins to create a through-hole component that's compatible with
  *          a breadboard. The AMBB is designed to be 3D printed and assembled in three parts.
- * @version 1.1
+ * @version 1.2
  * @copyright June 2022
  * @note This file is part of the original AMBB project as it appeared in the journal publication.
  * @note Version 1.1 was made post-publication to simply clean it up and make it more readable, no functional changes
  * were made.
+ * @note Version 1.2 widens the cut that trims the bolt's thread at its tip. It was narrower than the thread, which
+ * left a thin ring of thread standing 0.72 mm above the bolt's end. The STLs in printing/ come from the FreeCAD
+ * model and are unaffected.
  */
 
 // Import the Spiral Extrude Library
@@ -347,14 +350,9 @@ color(bolt_color, bolt_opacity) if (render_bolt)
                     square([ bolt_threading_shape_depth + zfight_tol, bolt_threading_shape_height ]);
         }
 
-        // remove hanging threading
+        // remove hanging threading; as wide as the head, so it clears the thread's outer edge
         translate([ 0, 0, bolt_body_height + bolt_head_height + (bolt_threading_shape_height * 1.5 + zfight_tol) / 2 ])
-            cube(
-                [
-                    bolt_radius * 2 + bolt_threading_shape_depth * 2 + zfight_tol,
-                    bolt_radius * 2 + bolt_threading_shape_depth * 2 + zfight_tol, bolt_threading_shape_height * 1.5 +
-                    zfight_tol
-                ],
-                true);
+            cube([ bolt_head_width + zfight_tol, bolt_head_width + zfight_tol, bolt_threading_shape_height * 1.5 + zfight_tol ],
+                 true);
     }
 }
