@@ -11,7 +11,7 @@ first published on the Open Science Framework, <https://osf.io/dh6uy/>.
 
 ![The AMBB's three parts in FreeCAD: enclosure, component housing and bolt](assets/images/adapter_CAD_isometric_view.png)
 
-![An assembled AMBB plugged into a breadboard](assets/images/testing2.png)
+[![An assembled AMBB plugged into a breadboard](assets/images/testing2-1200.jpg)](assets/images/testing2.png)
 
 ## How it works
 
